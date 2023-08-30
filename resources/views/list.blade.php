@@ -9,22 +9,43 @@
 <body>
 <h1>To Do List</h1>
 
-<div class="highPriority"></br>
-    <label for="highTask">High Priority Tasks</label></br>
-    <input type="text" name="highTask">
-    <input type="submit" value="Submit">
+<div class="highPriority">
+    <form method="POST" action="{{ route('save.task') }}">
+        @csrf
+        <label for="highTask">High Priority Tasks</label><br>
+        <input type="text" name="highTask">
+        <input type="submit" value="Submit">
+    </form>
+    <div>
+        <strong>Submitted High Priority Task:</strong>
+        {{ isset($highTask) ? $highTask : 'No task submitted' }}
+    </div>
 </div>
 
-<div class="mediumPriority"></br>
-    <label for="mediumTask">Medium Priority Tasks</label></br>
-    <input type="text" name="mediumTask">
-    <input type="submit" value="Submit">
+<div class="mediumPriority">
+    <form method="POST" action="{{ route('save.task') }}">
+        @csrf
+        <label for="mediumTask">Medium Priority Tasks</label><br>
+        <input type="text" name="mediumTask">
+        <input type="submit" value="Submit">
+    </form>
+    <div>
+        <strong>Submitted Medium Priority Task:</strong>
+        {{ isset($mediumTask) ? $mediumTask : 'No task submitted' }}
+    </div>
 </div>
 
-<div class="lowPriority"></br>
-    <lable for="lowTask">No Priority Tasks</lable></br>
-    <input type="text" name="lowTask">
-    <input type="submit" value="Submit">
+<div class="lowPriority">
+    <form method="POST" action="{{ route('save.task') }}">
+        @csrf
+        <label for="lowTask">No Priority Tasks</label><br>
+        <input type="text" name="lowTask">
+        <input type="submit" value="Submit">
+    </form>
+    <div>
+        <strong>Submitted Low Priority Task:</strong>
+        {{ isset($lowTask) ? $lowTask : 'No task submitted' }}
+    </div>
 </div>
 </body>
 </html>

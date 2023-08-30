@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/list' ,function(){
     return view ('/list');
 });
+
+Route::post('/save-task', [TaskController::class, 'saveTask'])->name('save.task');
+
+
